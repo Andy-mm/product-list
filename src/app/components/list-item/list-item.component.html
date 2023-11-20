@@ -1,0 +1,15 @@
+<div class="card w-100">
+    <div class="d-flex mv-100">
+        <div class="card-body flex-grow-1 overflow-hidden">
+            <h5 class="card-title">{{ itemData?.name }}</h5>
+            <h6 class="card-subtitle">{{ itemData?.vendorCode }}</h6>
+            <p class="card-text">{{ itemData?.description }}</p>
+
+            <p class="card-text font-weight-bold">{{ itemData?.price }} Р</p>
+        </div>
+
+        <div class="flex-grow-0 d-flex flex-column p-4">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

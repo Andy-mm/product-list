@@ -1,0 +1,21 @@
+<div class="flex-column p-lg-3 overflow-auto">
+    <div
+        *ngFor="let product of products$ | async; trackBy: trackByFn"
+        class="border mb-3 rounded"
+        [ngClass]="{ 'border-primary': selectedItemId === product.id }"
+    >
+        <app-list-item [itemData]="product">
+            <button
+                class="btn btn-secondary mb-3"
+                [disabled]="disabled || (loading$ | async)"
+                (click)="deleteButtonClicked(product.id)"
+            >Удалить</button>
+
+            <button
+                class="btn btn-info"
+                [disabled]="disabled || (loading$ | async)"
+                (click)="editButtonClicked(product.id)"
+            >Редактировать</button>
+        </app-list-item>
+    </div>
+</div>

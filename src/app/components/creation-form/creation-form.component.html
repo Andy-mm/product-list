@@ -1,0 +1,10 @@
+<div>
+    <h3>Создание товара</h3>
+    <app-product-form [form]="creationForm"></app-product-form>
+
+    <button type="button" class="btn btn-light mr-2" (click)="onClickCancel()">Отмена</button>
+    <button type="button" class="btn btn-primary" [disabled]="creationForm.invalid || creationForm.pending" (click)="onClickSave()">Создать</button>
+</div>
+
+
+

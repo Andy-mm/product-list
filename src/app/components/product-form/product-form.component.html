@@ -1,0 +1,38 @@
+<ng-container *ngIf="form as formGroup">
+    <form [formGroup]="formGroup">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Наименование</span>
+            </div>
+            <input formControlName="name" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+
+        <div
+            class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Артикул</span>
+            </div>
+            <input formControlName="vendorCode" type="text" class="form-control">
+        </div>
+        <p *ngIf="form.controls.vendorCode.pending" class="alert alert-primary">Проверка уникальности артикула...</p>
+        <p *ngIf="form.controls.vendorCode.hasError('notUniq')" class="alert alert-danger">Товар с данным артикулом уже существует</p>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Описание</span>
+            </div>
+            <textarea formControlName="description" type="textarea" class="form-control" aria-label="Amount (to the nearest dollar)"></textarea>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Стоимость</span>
+            </div>
+            <input formControlName="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+                <span class="input-group-text">Р</span>
+            </div>
+        </div>
+
+    </form>
+</ng-container>

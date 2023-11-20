@@ -1,0 +1,13 @@
+<div *ngIf="(editingForm$ | async) as form; else loader">
+    <h3>Редактирование товара</h3>
+    <app-product-form [form]="form"></app-product-form>
+
+    <button class="btn btn-light mr-2" (click)="onClickCancel()">Отмена</button>
+    <button class="btn btn-primary" [disabled]="form.invalid || form.pristine || form.pending" (click)="onClickSave(form)">Сохранить</button>
+</div>
+
+<ng-template #loader>
+    <div class="d-flex justify-content-center align-items-center h-100 w-100">
+        <span>Загрузка...</span>
+    </div>
+</ng-template>
